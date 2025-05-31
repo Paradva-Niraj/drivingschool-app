@@ -1,0 +1,16 @@
+{
+  "name": "drivingschool-app-backend",
+  "version": "1.0.0",
+  "description": "driving school management system",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "keywords": [
+    "drivingschool",
+    "driving",
+    "school"
+  ],
+  "author": "niraj paradva",
+  "license": "MIT"
+}
