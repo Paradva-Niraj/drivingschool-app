@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function Header() {
 
@@ -27,7 +27,7 @@ function Header() {
                         <a href="#aboutus">About Us</a>
                         <a href="#pricing">Pricing</a>
                         <a href="#inquery">Inquery</a>
-                        <a href="#login">Log In</a>
+                        <Link to="/login">Log In</Link>
                     </div> : <></>
                 }
             </div>
