@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {Link} from 'react-router-dom';
 
 function Header() {
 
@@ -7,13 +8,13 @@ function Header() {
     return (
         <>
             <div className="header">
-                <img src="Screenshot_2025-05-31_153318-removebg-preview.png" alt="" srcset="" />
+                <img src="car.png" alt="" srcSet="" />
                 <div className="links">
-                    <a href="#">Home</a>
-                    <a href="#">About Us</a>
-                    <a href="#">Pricing</a>
-                    <a href="#">Inquery</a>
-                    <a href="#">Log In</a>
+                    <a href="#home">Home</a>
+                    <a href="#aboutus">About Us</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#inquery">Inquery</a>
+                    <Link to="/login">Log In</Link>
                 </div>
                 <div className="hide-links" onClick={() => setMenu(!menu)}>
                     <div></div>
@@ -22,11 +23,11 @@ function Header() {
                 </div>
                 {
                     menu ? <div className="hidden-menu">
-                        <a href="#">Home</a>
-                        <a href="#">About Us</a>
-                        <a href="#">Pricing</a>
-                        <a href="#">Inquery</a>
-                        <a href="#">Log In</a>
+                        <a href="#home">Home</a>
+                        <a href="#aboutus">About Us</a>
+                        <a href="#pricing">Pricing</a>
+                        <a href="#inquery">Inquery</a>
+                        <a href="#login">Log In</a>
                     </div> : <></>
                 }
             </div>
