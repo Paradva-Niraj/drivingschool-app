@@ -1,17 +1,26 @@
 import './App.css'
+import React, { lazy, Suspense } from 'react';
+
 import Landing from './pages/Landing'
-import Login from './pages/Login.jsx';
-import { BrowserRouter,Route,Routes} from 'react-router-dom';
+
+//lazy loading components which use further in page
+const Login = lazy(()=>import('./pages/Login.jsx'))
+const Home = lazy(()=>import('./pages/Home.jsx'))
+
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
 
   return (
     <>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Landing/>} />
-          <Route path="/login" element={<Login />} />
-        </Routes>
+        <Suspense fallback={<div>Loding</div>}>
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/home" element={<Home />} />
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </>
   )
