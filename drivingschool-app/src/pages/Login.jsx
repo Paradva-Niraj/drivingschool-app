@@ -1,17 +1,44 @@
 import { useState } from "react";
 import '../style/Login.css';
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import axios from 'axios'
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('student');
 
-  const handleSubmit = (e) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log({ email, password, role });
 
-    // TODO: Add your backend login logic here
+    // role base api call
+    if (role == 'admin') {
+      try {
+        const res = await axios.post(`${import.meta.env.VITE_BASE_URL}/api/auth/adminlogin`, {
+          email,
+          password,
+        });
+
+        const { token, role } = res.data;
+
+        localStorage.setItem('token', token);
+        localStorage.setItem('role', role);
+
+        if (res) {
+          navigate('/dashboard');
+        }
+        else {
+          navigate('/login');
+        }
+      }
+      catch(err){
+        console.log(err.response?.data?.error || "Login failed");
+      }
+    }
   };
 
   return (
