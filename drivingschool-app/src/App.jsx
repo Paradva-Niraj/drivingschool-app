@@ -2,7 +2,7 @@ import './App.css'
 import React, { lazy, Suspense } from 'react';
 
 import Landing from './pages/Landing'
-
+import Loading from './components/Loading.jsx';
 //lazy loading components which use further in page
 const Login = lazy(() => import('./pages/Login.jsx'))
 const Home = lazy(() => import('./pages/Home.jsx'))
@@ -16,11 +16,7 @@ function App() {
     <>
       <BrowserRouter>
         <Suspense fallback={
-          <div className='loading'>
-            <div>
-              
-            </div>
-          </div>
+          <Loading />
         }>
           <Routes>
             <Route path="/" element={<Landing />} />

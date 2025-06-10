@@ -1,7 +1,10 @@
+import '../style/Dashboard.css';
+
 function Dashboard() {
-    return ( <>
-        dashboard
-    </> );
+
+    return (<>
+    Dashboard
+    </>);
 }
 
 export default Dashboard;
