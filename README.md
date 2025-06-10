@@ -51,7 +51,8 @@ I done many thing in last 5 days like requirement designing and many other thing
 - JWT includes user ID and role, expires in 7 days
 - Role also returned in response for frontend use
 
----
+## loading ui
+- any page are loading videa a loading a component like styling.
 
 ## 📦 How to Run
 
