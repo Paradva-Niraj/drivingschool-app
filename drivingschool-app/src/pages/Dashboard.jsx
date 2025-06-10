@@ -3,7 +3,7 @@ import '../style/Dashboard.css';
 function Dashboard() {
 
     return (<>
-    Dashboard
+        <img src="logo.png" alt="" srcSet="" />
     </>);
 }
 
