@@ -1,10 +1,18 @@
 import '../style/Dashboard.css';
+import Adminnav from '../components/Adminnav';
 
 function Dashboard() {
 
-    return (<>
-        <img src="logo.png" alt="" srcSet="" />
-    </>);
+    return (
+        <div className='admin'>
+            <div className='navbar'>
+                <Adminnav />
+            </div>
+            <div className='information'>
+                admin access
+            </div>
+        </div>
+    );
 }
 
 export default Dashboard;
