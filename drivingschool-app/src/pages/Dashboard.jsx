@@ -9,7 +9,12 @@ function Dashboard() {
                 <Adminnav />
             </div>
             <div className='information'>
-                admin access
+                <div className='title'>
+                    Driving School Management System - admin
+                </div>
+                <div>
+                    
+                </div>
             </div>
         </div>
     );

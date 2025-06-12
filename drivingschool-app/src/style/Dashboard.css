@@ -8,7 +8,7 @@
   font-weight: 300;
   font-style: normal;
   /* background-color: aqua; */
-  width: 27vh;
+  width: 15vw;
   height: 100vh;
   position: fixed;
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
@@ -29,7 +29,8 @@
 .nav-links{
   display: flex;
   margin-top: 2vh;
-  justify-content:center;
+  flex-direction: column;
+  justify-content:space-around;
   align-items: center;
   list-style: none;
   width: 100%;
@@ -37,12 +38,50 @@
 }
 
 .information {
-  height: 200vh;
-  margin-left: 30vh;
+  margin-left: 16vw;
+  background-color: aqua;
 }
 
-@media (max-width:479px) {
+.title{
+  font-size: 3vh;
+  font-weight: 600;
+  height: 6vh;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 820px) {
+  .admin {
+    flex-direction: column;
+  }
+
+  .nav-links{
+    flex-direction: row;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height: 10vw;
+  }
+
+  .nav-links div{
+    margin-left: 5vw;
+    margin-right:5vw;
+  }
+
   .navbar {
+    position: relative;
+    height: auto;
+    width: 100vw;
+    flex-direction: row;
+  }
+
+  .information {
+    margin-left: 0;
+    width: auto;
+    /* padding: 2vh 4vw; */
+  }
+
+  .title {
     display: none;
   }
 }

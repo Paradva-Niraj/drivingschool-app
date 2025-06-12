@@ -10,10 +10,21 @@ function Adminnav() {
         </div>
         <hr />
         <div className="nav-links">
-            Dashboard<br />
-            student <br />
-            teacher <br />
-            Progress 
+            <div>
+                Dashboard
+            </div>
+            <div>
+                student
+            </div>
+            <div>
+                teacher
+            </div>  
+            <div>
+                Progress
+            </div>
+            <div>
+                request
+            </div>
         </div>
     </>);
 }
