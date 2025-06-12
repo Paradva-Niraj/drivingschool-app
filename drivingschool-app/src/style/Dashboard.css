@@ -38,8 +38,9 @@
 }
 
 .information {
+  width: 82vw;
   margin-left: 16vw;
-  background-color: aqua;
+  /* background-color: aqua; */
 }
 
 .title{
@@ -48,10 +49,34 @@
   height: 6vh;
   align-items: center;
   display: flex;
-  justify-content: center;
+  justify-content: left;
 }
 
-@media screen and (max-width: 820px) {
+.cards{
+  display: flex;
+  margin-top: 2vh;
+  flex-wrap: wrap;
+  gap:1rem;
+}
+
+.card{
+  margin-right: 2vw;
+  margin-left: 2vw;
+  width: 330px;
+  height: 80px;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  /* background-color: aqua; */
+}
+
+.card img {
+  height: 70px;
+  margin-left: 10px;
+}
+
+@media screen and (max-width: 1024px) {
   .admin {
     flex-direction: column;
   }
@@ -83,5 +108,15 @@
 
   .title {
     display: none;
+  }
+
+  .card{
+    width: 280px;
+  }
+}
+
+@media  screen and (max-width: 430px) {
+  .card{
+    width: 95vw;
   }
 }
