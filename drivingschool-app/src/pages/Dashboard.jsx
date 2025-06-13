@@ -1,39 +1,50 @@
 import '../style/Dashboard.css';
 import Adminnav from '../components/Adminnav';
 import { useState } from 'react';
+import Home from './Home';
 
 function Dashboard() {
-
-    const [list,setList] = useState([
-        {title:'Students', count: 2},
-        {title:'Teachers', count: 3},
-        {title:'Parents', count: 5},
-        {title:'Admins', count: 1},
-        {title:'Courses', count: 4},
+    const [selectedSection, setSelectedSection] = useState('dashboard');
+    const [list, setList] = useState([
+        { title: 'Students', count: 2 },
+        { title: 'Staff', count: 3 },
+        { title: 'Package', count: 5 },
+        { title: 'Admins', count: 1 },
+        { title: 'Inqueries', count: 4 },
     ]);
 
     return (
         <div className='admin'>
             <div className='navbar'>
-                <Adminnav />
+                <Adminnav setSelectedSection={setSelectedSection}/>
             </div>
             <div className='information'>
                 <div className='title'>
                     Driving School Management System - admin
                 </div>
-                <div className='cards'>
-                    {
-                        list.map((item, index) => {
-                            return(
-                                <div className="card" key={index}>
-                                    <img src={`icon${index+1}.png`} alt="info" srcSet="" />
+                {selectedSection === "dashboard" && (
+                    <div className='cards'>
+                        {
+                            list.map((item, index) => (
+                                <div
+                                    className="card"
+                                    key={index}
+                                    onClick={() => setSelectedSection(item.title.toLowerCase())}
+                                >
+                                    <img src={`icon${index + 1}.png`} alt="info" srcSet="" />
                                     <span>{item.title}</span>
                                     <span>{item.count}</span>
                                 </div>
-                            )
-                        })
-                    }
-                </div>
+                            ))
+                        }
+                    </div>
+                )}
+
+                {selectedSection === "students" && <Home />}
+                {selectedSection === "staff" && <Staff />}
+                {selectedSection === "package" && <div>📦 Package Component</div>}
+                {selectedSection === "admins" && <div>🛡 Admin Management</div>}
+                {selectedSection === "inqueries" && <div>📩 Inquiry Management</div>}
             </div>
         </div>
     );

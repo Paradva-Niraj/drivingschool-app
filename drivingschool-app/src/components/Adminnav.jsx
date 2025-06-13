@@ -1,5 +1,6 @@
-function Adminnav() {
-    return (<>
+function Adminnav({ setSelectedSection }) {
+    return (
+    <>
         <div className="nav-logo">
             <div>
                 <img src="logo.png" alt="" srcSet="" />
@@ -10,23 +11,24 @@ function Adminnav() {
         </div>
         <hr />
         <div className="nav-links">
-            <div>
+            <div onClick={() => setSelectedSection('dashboard')}>
                 Dashboard
             </div>
-            <div>
-                student
+            <div onClick={() => setSelectedSection('students')}>
+                Students
             </div>
-            <div>
-                teacher
+            <div onClick={() => setSelectedSection('staff')}>
+                Staff
             </div>  
-            <div>
-                Progress
+            <div onClick={() => setSelectedSection('package')}>
+                Package
             </div>
-            <div>
-                request
+            <div onClick={() => setSelectedSection('inqueries')}>
+                Inqueries
             </div>
         </div>
-    </>);
+    </>
+    );
 }
 
 export default Adminnav;
