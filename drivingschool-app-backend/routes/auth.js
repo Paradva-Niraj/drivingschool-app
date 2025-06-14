@@ -33,11 +33,13 @@ router.post('/adminlogin', async(req,res) => {
 
             const token = jwt.sign({id:admin._id,role:admin.role},process.env.JWT_SECRET,{expiresIn:'7d'});
 
-            res.status(200).json({token,role:admin.role});
+            res.status(200).json({token,role:admin.role,name:admin.username,mail:admin.email});
     }
     catch(err){
         res.status(500).json({error:`Login Error ${err.message}`});
     }
 })
+
+
 
 module.exports = router;

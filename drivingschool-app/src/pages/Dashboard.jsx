@@ -1,6 +1,6 @@
 import '../style/Dashboard.css';
 import Adminnav from '../components/Adminnav';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Home from './Home';
 
 function Dashboard() {
@@ -12,6 +12,11 @@ function Dashboard() {
         { title: 'Admins', count: 1 },
         { title: 'Inqueries', count: 4 },
     ]);
+
+    useEffect(()=>{
+        localStorage.getItem("token");
+        
+    })
 
     return (
         <div className='admin'>

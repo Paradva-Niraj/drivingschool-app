@@ -14,7 +14,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log({ email, password, role });
-
+    
     // role base api call
     if (role == 'admin') {
       try {
@@ -23,10 +23,10 @@ function Login() {
           password,
         });
 
-        const { token, role } = res.data;
+        const { token, role, name} = res.data;
 
         localStorage.setItem('token', token);
-        localStorage.setItem('role', role);
+        localStorage.setItem('driving-data', JSON.stringify({ email, role, name}));
 
         if (res) {
           navigate('/dashboard');
@@ -36,7 +36,7 @@ function Login() {
         }
       }
       catch(err){
-        console.log(err.response?.data?.error || "Login failed");
+        console.log(err.response?.data?.error || "Login failed"+err);
       }
     }
   };
