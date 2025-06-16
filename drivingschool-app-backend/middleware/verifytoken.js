@@ -1,7 +1,8 @@
 const jwt = require('jsonwebtoken');
 
-export const verifytoken = (req,res,next) => {
+const verifytoken = (req,res,next) => {
     const token = req.headers.authorization?.split(' ')[1];
+    // console.log("Token: ", token);
     if(!token) return res.status(401).json({error:"Token not provided"});
 
     try{
@@ -13,3 +14,5 @@ export const verifytoken = (req,res,next) => {
         res.status(401).json({error:"Token is not valid"});
     }
 }
+
+module.exports = verifytoken;

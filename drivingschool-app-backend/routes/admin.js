@@ -1,5 +1,10 @@
 const express = require('express');
-const jws = require('jsonwebtoken');
-const router = express.Router();
 const verifytoken = require('../middleware/verifytoken');
 
+const router = express.Router();
+
+router.get('/dashboard',verifytoken,(req,res)=>{
+    res.status(200).json()
+})
+
+module.exports = router;

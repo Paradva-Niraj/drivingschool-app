@@ -2,8 +2,13 @@ import '../style/Dashboard.css';
 import Adminnav from '../components/Adminnav';
 import { useEffect, useState } from 'react';
 import Home from './Home';
+import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
+
+    const navigate = useNavigate();
+
     const [selectedSection, setSelectedSection] = useState('dashboard');
     const [list, setList] = useState([
         { title: 'Students', count: 2 },
@@ -12,16 +17,28 @@ function Dashboard() {
         { title: 'Admins', count: 1 },
         { title: 'Inqueries', count: 4 },
     ]);
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        // console.log(token);
 
-    useEffect(()=>{
-        localStorage.getItem("token");
-        
-    })
+        axios.get(`${import.meta.env.VITE_BASE_URL}/api/admin/dashboard`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            }
+        })
+            .then(res => {
+                console.log('Access granted:', res.data);
+            })
+            .catch(err => {
+                console.error('Access denied:', err.response.data);
+                navigate('/login');
+            });
+    },[]);
 
     return (
         <div className='admin'>
             <div className='navbar'>
-                <Adminnav setSelectedSection={setSelectedSection}/>
+                <Adminnav setSelectedSection={setSelectedSection} />
             </div>
             <div className='information'>
                 <div className='title'>
@@ -46,7 +63,7 @@ function Dashboard() {
                 )}
 
                 {selectedSection === "students" && <Home />}
-                {selectedSection === "staff" && <Staff />}
+                {selectedSection === "staff" && <Home />}
                 {selectedSection === "package" && <div>📦 Package Component</div>}
                 {selectedSection === "admins" && <div>🛡 Admin Management</div>}
                 {selectedSection === "inqueries" && <div>📩 Inquiry Management</div>}

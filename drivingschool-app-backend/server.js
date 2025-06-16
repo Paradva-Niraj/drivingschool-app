@@ -8,6 +8,7 @@ dotenv.config();
 
 // routes import 
 const authroute = require('./routes/auth')
+const admin = require('./routes/admin')
 
 //server create
 const app = express();
@@ -25,6 +26,7 @@ app.get('/', (req, res) => {
 
 //auth api for admin ( future refrence = user and teacher)
 app.use('/api/auth',authroute);
+app.use('/api/admin',admin);
 
 //port for running
 const PORT = process.env.PORT || 8000;
