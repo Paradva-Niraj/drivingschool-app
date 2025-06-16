@@ -1,33 +1,37 @@
+import { NavLink } from "react-router-dom";
 function Adminnav({ setSelectedSection }) {
     return (
-    <>
-        <div className="nav-logo">
-            <div>
-                <img src="logo.png" alt="" srcSet="" />
+        <>
+            <div className="nav-logo">
+                <div>
+                    <img src="logo.png" alt="" srcSet="" />
+                </div>
+                <div>
+                    Driving School
+                </div>
             </div>
-            <div>
-                Driving School
+            <hr />
+            <div className="nav-links">
+                <div>
+                    <NavLink className="Link" to="/dashboard">Dashboard</NavLink>
+                </div>
+                <div>
+                    <NavLink className="Link" to="/dashboard/students">Students</NavLink>
+                </div>
+                <div>
+                    <NavLink className="Link" to="/dashboard/staff">Staff</NavLink>
+                </div>
+                <div>
+                    <NavLink className="Link" to="/dashboard/admin">Admin</NavLink>
+                </div>
+                <div>
+                    <NavLink className="Link" to="/dashboard/package">Package</NavLink>
+                </div>
+                <div>
+                    <NavLink className="Link" to="/dashboard/inqueries">Inqueries</NavLink>
+                </div>
             </div>
-        </div>
-        <hr />
-        <div className="nav-links">
-            <div onClick={() => setSelectedSection('dashboard')}>
-                Dashboard
-            </div>
-            <div onClick={() => setSelectedSection('students')}>
-                Students
-            </div>
-            <div onClick={() => setSelectedSection('staff')}>
-                Staff
-            </div>  
-            <div onClick={() => setSelectedSection('package')}>
-                Package
-            </div>
-            <div onClick={() => setSelectedSection('inqueries')}>
-                Inqueries
-            </div>
-        </div>
-    </>
+        </>
     );
 }
 

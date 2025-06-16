@@ -22,7 +22,22 @@ function App() {
             <Route path="/" element={<Landing />} />
             <Route path="/login" element={<Login />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard" element={<Dashboard />}>
+              <Route index element={<Home />} />
+
+
+              {/* todo :: chnage this defult to any jsx file  */}
+
+              
+              <Route path="students" element={<div>Student Management</div>} />
+              <Route path="staff" element={<div>Staff Management</div>} />
+              <Route path="package" element={<div>Package Management</div>} />
+              <Route path="admin" element={<div>Admin Management</div>} />
+              <Route path="inqueries" element={<div>Inquiry Management</div>} />
+
+              {/* temp file */}
+
+            </Route>
           </Routes>
         </Suspense>
       </BrowserRouter>

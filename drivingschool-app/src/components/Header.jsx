@@ -10,7 +10,7 @@ function Header() {
             <div className="header">
                 <img src="logo.png" alt="" srcSet="" />
                 <div className="links">
-                    <a href="#home">Home</a>
+                    <Link to="/dashboard">Home</Link>
                     <a href="#aboutus">About Us</a>
                     <a href="#pricing">Pricing</a>
                     <a href="#inquery">Inquery</a>

@@ -1,11 +1,38 @@
 import '../style/Home.css'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
-    return ( 
+
+    const navigate = useNavigate();
+
+    const [list, setList] = useState([
+        { title: 'Students', count: 2, link: 'student' },
+        { title: 'Staff', count: 3, link: 'staff' },
+        { title: 'Package', count: 5, link: 'package' },
+        { title: 'Admins', count: 1, link: 'admin' },
+        { title: 'Inqueries', count: 4, link: 'inquiry' },
+    ]);
+
+    return (
         <>
-            hello from home page!
+            <div className='cards'>
+                {
+                    list.map((item, index) => (
+                        <div
+                            className="card"
+                            key={index}
+                            onClick={() => {navigate(`/dashboard/${item.link}`)}}
+                        >
+                            <img src={`icon${index + 1}.png`} alt="info" srcSet="" />
+                            <span>{item.title}</span>
+                            <span>{item.count}</span>
+                        </div>
+                    ))
+                }
+            </div>
         </>
-     );
+    );
 }
 
 export default Home;

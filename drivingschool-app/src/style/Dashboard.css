@@ -10,11 +10,11 @@
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
-  /* background-color: aqua; */
+  background-color:#E5E9EC;
   width: 15vw;
   height: 100vh;
   position: fixed;
-  box-shadow: 0 0px 2px 0 rgba(0, 0, 0, 0.2), 0 0px 5px 0 rgba(255, 242, 0, 0.19);
+  box-shadow: 0 0px 2px 0 rgba(0, 0, 0, 0.5), 0 0px 5px 0 rgba(255, 242, 0, 0.19);
 }
 
 .navbar img {
@@ -23,7 +23,7 @@
 }
 
 .nav-logo{
-  background-color: yellow;
+  background-color: rgba(255, 255, 0, 0.521);
   /* margin-right: 10%; */
   display: flex;
   justify-content: center;
@@ -45,6 +45,11 @@
 .nav-links div:hover{
   text-shadow: 0 0 2px yellow;
   cursor: pointer;
+}
+
+.Link{
+  color:black;
+  text-decoration: none;
 }
 
 .information {
