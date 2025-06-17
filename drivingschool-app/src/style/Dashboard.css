@@ -18,7 +18,7 @@
 }
 
 .navbar img {
-  height: 6vh;
+  height: 50px;
   width: auto;
 }
 
@@ -125,6 +125,26 @@
   bottom: 2%;
 }
 
+.logout-btn-phone{
+  font-size: 12px;
+  background-color: rgba(255, 0, 0, 0.5);
+  color: white;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 0px 2px 0 rgba(0, 0, 0, 0.5), 0 0px 5px 0 rgba(255, 242, 0, 0.19);
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  box-sizing: border-box;
+  width: 100px;
+  position: absolute;
+  right: 10px;
+  top:1vh;
+  display: none;
+}
+
 @media screen and (max-width: 1024px) {
   .admin {
     flex-direction: column;
@@ -162,10 +182,23 @@
   .card{
     width: 280px;
   }
+
+  .logout-btn{
+    display:none ;
+  }
+
+  .logout-btn-phone{
+    display: block;
+  }
+
 }
 
-@media  screen and (max-width: 430px) {
+@media  screen and (max-width: 431px) {
   .card{
     width: 95vw;
+  }
+
+  .nav-logo{
+    justify-content: left;
   }
 }

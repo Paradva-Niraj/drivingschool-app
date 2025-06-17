@@ -1,0 +1,51 @@
+.info {
+    position: fixed;
+    top: 20px;
+    right: 40px;
+    background-color: #ff4d4f;
+    color: white;
+    padding: 16px 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 250px;
+    font-family: sans-serif;
+    animation: slideIn 0.3s ease-out;
+}
+
+.info button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.info.success {
+    background-color: #52c41a;
+}
+
+.info.warning {
+    background-color: #faad14;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translatey(0);
+    }
+    to {
+        opacity: 1;
+        transform: translatey(100%);
+    }
+}
+
+@media screen and (max-width: 433px) {
+    .info {
+        width: 80vw;
+        right: 2px;
+    }
+}

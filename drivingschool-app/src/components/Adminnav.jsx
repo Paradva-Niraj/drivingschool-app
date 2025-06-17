@@ -1,4 +1,4 @@
-import { NavLink,useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function Adminnav() {
 
@@ -17,7 +17,12 @@ function Adminnav() {
                     <img src="logo.png" alt="" srcSet="" />
                 </div>
                 <div>
-                    Driving School
+                    <div>
+                        Driving School
+                    </div>
+                </div>
+                <div>
+                    <button className="logout-btn-phone" onClick={handlelogout}>Logout</button>
                 </div>
             </div>
             <hr />

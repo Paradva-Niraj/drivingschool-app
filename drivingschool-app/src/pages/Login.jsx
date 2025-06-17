@@ -3,18 +3,20 @@ import '../style/Login.css';
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios'
+import Info from "../components/Info";
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('student');
+  const [error, setError] = useState("");
 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log({ email, password, role });
-    
+    // console.log({ email, password, role });
+
     // role base api call
     if (role == 'admin') {
       try {
@@ -23,10 +25,10 @@ function Login() {
           password,
         });
 
-        const { token, role, name} = res.data;
+        const { token, role, name } = res.data;
 
         localStorage.setItem('token', token);
-        localStorage.setItem('driving-data', JSON.stringify({ email, role, name}));
+        localStorage.setItem('driving-data', JSON.stringify({ email, role, name }));
 
         if (res) {
           navigate('/dashboard');
@@ -35,14 +37,20 @@ function Login() {
           navigate('/login');
         }
       }
-      catch(err){
-        console.log(err.response?.data?.error || "Login failed"+err);
+      catch (err) {
+        setError(err.response?.data?.error || "Login failed");
       }
     }
   };
 
   return (
     <div className="login-container">
+      {/* error component */}
+      {error &&
+        <Info message={error} onClose={() => setError('')} />
+      }
+
+
       <Link to="/" className="home-link" > &larr;Home</Link>
       <form className="login-form" onSubmit={handleSubmit}>
         <h2>Login</h2>
