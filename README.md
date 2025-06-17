@@ -4,8 +4,6 @@ A full-stack web application built using the MERN (MongoDB, Express.js, React, N
 
 ---
 
-## 🗓️ Daily Progress Log
-
 I done many thing in last 5 days like requirement designing and many other things!
 
 ### 📅 June 7, 2025 — **Day 1** -> i edit readme 
