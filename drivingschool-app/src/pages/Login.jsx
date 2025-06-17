@@ -20,7 +20,7 @@ function Login() {
     // role base api call
     if (role == 'admin') {
       try {
-        const res = await axios.post(`${import.meta.env.VITE_BASE_URL}/api/auth/adminlogin`, {
+        const res = await axios.post(`${import.meta.env.VITE_BASE_URL_PHONE}/api/auth/adminlogin`, {
           email,
           password,
         });
@@ -31,6 +31,7 @@ function Login() {
         localStorage.setItem('driving-data', JSON.stringify({ email, role, name }));
 
         if (res) {
+
           navigate('/dashboard');
         }
         else {
@@ -38,7 +39,7 @@ function Login() {
         }
       }
       catch (err) {
-        setError(err.response?.data?.error || "Login failed");
+        setError(err.response?.data?.error || "Login failed"+err);
       }
     }
   };

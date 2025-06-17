@@ -46,6 +46,6 @@
 @media screen and (max-width: 433px) {
     .info {
         width: 80vw;
-        right: 2px;
+        right: 4vw;
     }
 }

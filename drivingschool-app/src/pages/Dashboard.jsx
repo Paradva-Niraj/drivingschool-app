@@ -20,7 +20,7 @@ function Dashboard() {
             navigate('/login');
         }
         else {
-            axios.get(`${import.meta.env.VITE_BASE_URL}/api/admin/dashboard`, {
+            axios.get(`${import.meta.env.VITE_BASE_URL_PHONE}/api/admin/dashboard`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 }
