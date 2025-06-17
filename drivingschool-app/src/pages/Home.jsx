@@ -7,7 +7,7 @@ function Home() {
     const navigate = useNavigate();
 
     const [list, setList] = useState([
-        { title: 'Students', count: 2, link: 'student' },
+        { title: 'Students', count: 2, link: 'students' },
         { title: 'Staff', count: 3, link: 'staff' },
         { title: 'Package', count: 5, link: 'package' },
         { title: 'Admins', count: 1, link: 'admin' },

@@ -39,11 +39,14 @@
   margin-right: 2vh;
   list-style: none;
   width: auto;
+  height: 80%;
   line-height: 2.2;
+  overflow-y: scroll;
+  scrollbar-width:none
 }
 
 .nav-links div:hover{
-  text-shadow: 0 0 2px yellow;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.582);
   cursor: pointer;
 }
 
@@ -59,7 +62,7 @@
 }
 
 .title{
-  font-size: 3vh;
+  font-size: 1.4vw;
   font-weight: 600;
   height: 6vh;
   align-items: center;
@@ -89,6 +92,7 @@
   font-family: "Poiret One", sans-serif;
   font-weight: 600;
   font-style: normal;
+  cursor: pointer;
 }
 
 .card img {
@@ -100,6 +104,25 @@
   background-color: rgba(255, 255, 0, 0.516);
   box-shadow: 0px 0px 5px rgb(0, 0, 0);
   transition-delay: 0.1s ;
+}
+
+.logout-btn{
+  font-size: 1.1vw;
+  background-color: rgba(255, 0, 0, 0.5);
+  color: white;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 0px 2px 0 rgba(0, 0, 0, 0.5), 0 0px 5px 0 rgba(255, 242, 0, 0.19);
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  box-sizing: border-box;
+  width: 80%;
+  margin-left: 10%;
+  position: absolute;
+  bottom: 2%;
 }
 
 @media screen and (max-width: 1024px) {

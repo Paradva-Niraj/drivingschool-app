@@ -6,26 +6,27 @@ import axios from 'axios';
 import { useNavigate,Outlet } from "react-router-dom";
 
 function Dashboard() {
-
+    
     const navigate = useNavigate();
-
-   
+    let [data,setData] = useState(null);
+    // console.log(data.name);
+    
     useEffect(() => {
         const token = localStorage.getItem("token");
-        // console.log(token);
-
+        
         axios.get(`${import.meta.env.VITE_BASE_URL}/api/admin/dashboard`, {
             headers: {
                 Authorization: `Bearer ${token}`,
             }
         })
-            .then(res => {
-                console.log('Access granted:', res.data);
-            })
-            .catch(err => {
-                console.error('Access denied:', err.response.data);
-                navigate('/login');
-            });
+        .then(res => {
+            console.log('Access granted:', res.data);
+            setData(JSON.parse(localStorage.getItem("driving-data")));
+        })
+        .catch(err => {
+            console.error('Access denied:', err.response.data);
+            navigate('/login');
+        });
     },[]);
 
     return (
@@ -35,7 +36,7 @@ function Dashboard() {
             </div>
             <div className='information'>
                 <div className='title'>
-                    Driving School Management System - admin
+                    Driving School Management System - {data && data.name}
                 </div>
                 <Outlet />
             </div>

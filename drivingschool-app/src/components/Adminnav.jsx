@@ -1,5 +1,15 @@
-import { NavLink } from "react-router-dom";
-function Adminnav({ setSelectedSection }) {
+import { NavLink,useNavigate } from "react-router-dom";
+
+function Adminnav() {
+
+    const navigate = useNavigate();
+
+    const handlelogout = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('driving-data');
+        navigate('/login');
+    }
+
     return (
         <>
             <div className="nav-logo">
@@ -30,6 +40,9 @@ function Adminnav({ setSelectedSection }) {
                 <div>
                     <NavLink className="Link" to="/dashboard/inqueries">Inqueries</NavLink>
                 </div>
+            </div>
+            <div>
+                <button className="logout-btn" onClick={handlelogout}>Logout</button>
             </div>
         </>
     );
