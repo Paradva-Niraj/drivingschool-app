@@ -43,7 +43,7 @@ function Adminnav() {
                     <NavLink className="Link" to="/dashboard/package">Package</NavLink>
                 </div>
                 <div>
-                    <NavLink className="Link" to="/dashboard/inqueries">Inqueries</NavLink>
+                    <NavLink className="Link" to="/dashboard/Inquiry">Inquiry</NavLink>
                 </div>
             </div>
             <div>

@@ -31,7 +31,6 @@ function Login() {
         localStorage.setItem('driving-data', JSON.stringify({ email, role, name }));
 
         if (res) {
-
           navigate('/dashboard');
         }
         else {
@@ -39,7 +38,7 @@ function Login() {
         }
       }
       catch (err) {
-        setError(err.response?.data?.error || "Login failed"+err);
+        setError(err.response?.data?.error || "Check gmail"+err);
       }
     }
   };

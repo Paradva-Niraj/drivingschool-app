@@ -11,7 +11,7 @@ function Home() {
         { title: 'Staff', count: 3, link: 'staff' },
         { title: 'Package', count: 5, link: 'package' },
         { title: 'Admins', count: 1, link: 'admin' },
-        { title: 'Inqueries', count: 4, link: 'inquiry' },
+        { title: 'Inquiry', count: 4, link: 'Inquiry' },
     ]);
 
     return (
