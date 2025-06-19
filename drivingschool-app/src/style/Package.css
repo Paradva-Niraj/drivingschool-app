@@ -1,47 +1,117 @@
-.package-container {
+.package-page{
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  padding: 2rem;
+  width: 95%;
+  justify-content: space-between;
+}
+
+.package-page button{
+  border: none;
+  display: flex;
+  padding: 0.75rem 1.5rem;
+  background-color: #d6ec48;
+  color: #ffffff;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  vertical-align: middle;
+  align-items: center;
+  border-radius: 0.5rem;
+  user-select: none;
+  gap: 0.75rem;
+  box-shadow: 0 4px 6px -1px #488aec31, 0 2px 4px -1px #488aec17;
+  transition: all 0.6s ease;
+}
+
+.package-page button:hover {
+  background-color: #488aec;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.package-page button svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.package-container{
+  margin-top: 2%;
+}
+
+.package-container h2{
+  margin-left: 1rem;
 }
 
 .package-card {
-  background-color: #fff;
-  border-left: 6px solid #f5c518;
+  background-color: #fffbea;
+  border: 2px solid #fcd535;
+  border-radius: 10px;
   padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin: 1rem auto;
+  width: 90%;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.package-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+.package-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #d4aa00;
+  margin-bottom: 1rem;
 }
 
-.package-card h3 {
-  margin-bottom: 0.5rem;
+.package-body {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.package-left,
+.package-right {
+  flex: 1;
+  min-width: 200px;
+  font-size: 1rem;
   color: #333;
 }
 
-.package-card p {
-  margin: 0.25rem 0;
-  color: #555;
-  font-size: 0.95rem;
+.package-left p,
+.package-right p {
+  margin: 0.5rem 0;
 }
 
-.package-card button {
-  margin-top: 1rem;
-  background-color: #f5c518;
-  color: #333;
-  border: none;
+.highlight {
+  color: #e63946;
+  font-weight: 600;
+}
+
+.package-actions {
+  margin-top: 1.2rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.edit-btn {
+  background-color: #fcd535;
+  color: #222;
   padding: 0.6rem 1.2rem;
   font-weight: bold;
+  border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background 0.2s ease;
 }
 
-.package-card button:hover {
-  background-color: #e5b700;
+.edit-btn:hover {
+  background-color: #ffcc00;
+}
+
+@media screen and (max-width: 768px) {
+  .package-card{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
