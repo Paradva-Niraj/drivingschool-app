@@ -25,7 +25,6 @@ function Adminnav() {
                     <button className="logout-btn-phone" onClick={handlelogout}>Logout</button>
                 </div>
             </div>
-            <hr />
             <div className="nav-links">
                 <div>
                     <NavLink className="Link" to="/dashboard">Dashboard</NavLink>
@@ -43,7 +42,7 @@ function Adminnav() {
                     <NavLink className="Link" to="/dashboard/package">Package</NavLink>
                 </div>
                 <div>
-                    <NavLink className="Link" to="/dashboard/Inquiry">Inquiry</NavLink>
+                    <NavLink className="Link" to="/dashboard/Enquiry">Enquiry</NavLink>
                 </div>
             </div>
             <div>

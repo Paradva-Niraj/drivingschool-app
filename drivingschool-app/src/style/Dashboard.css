@@ -10,7 +10,7 @@
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
-  background-color:#E5E9EC;
+  background-color:#ffffff;
   width: 15vw;
   height: 100vh;
   position: fixed;
@@ -28,6 +28,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-end-end-radius: 20px;
+  border-end-start-radius: 20px;
+  border-bottom:1px solid rgb(131, 131, 131);
 }
 
 .nav-links{
@@ -78,9 +81,10 @@
 }
 
 .card{
-  margin-right: 2vw;
+  /* margin-right: 2vw; */
   margin-left: 2vw;
-  width: 330px;
+  /* width: 330px; */
+  width: 44%;
   height: 80px;
   border: 1px solid black;
   display: flex;
@@ -180,7 +184,7 @@
   }
 
   .card{
-    width: 280px;
+    width: 44%;
   }
 
   .logout-btn{

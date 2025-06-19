@@ -7,7 +7,8 @@ import Loading from './components/Loading.jsx';
 const Login = lazy(() => import('./pages/Login.jsx'))
 const Home = lazy(() => import('./pages/Home.jsx'))
 const Dashboard = lazy(() => import('./pages/Dashboard.jsx'))
-const Inquiry = lazy(() => import('./pages/Inquiry.jsx'))
+const Enquiry = lazy(() => import('./pages/Enquiry.jsx'))
+const Package = lazy(() => import('./pages/Package.jsx'))
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
@@ -32,9 +33,9 @@ function App() {
               
               <Route path="students" element={<div>Student Management</div>} />
               <Route path="staff" element={<div>Staff Management</div>} />
-              <Route path="package" element={<div>Package Management</div>} />
+              <Route path="package" element={<Package />} />
               <Route path="admin" element={<div>Admin Management</div>} />
-              <Route path="Inquiry" element={<Inquiry />} />
+              <Route path="Enquiry" element={<Enquiry />} />
 
               {/* temp file */}
 
