@@ -10,7 +10,7 @@ function AddPackage() {
         lessons: '',
         vehicle: 'both',
         theory: 'yes',
-        testFee: 'yes',
+        testfee: 'yes',
     });
 
     const handleChange = (e) => {
@@ -83,7 +83,7 @@ function AddPackage() {
 
                 <div className="form-row">
                     <label>Test Fee Included</label>
-                    <select name="testFee" value={form.testFee} onChange={handleChange}>
+                    <select name="testfee" value={form.testfee} onChange={handleChange}>
                         <option value="yes">Yes</option>
                         <option value="no">No</option>
                     </select>

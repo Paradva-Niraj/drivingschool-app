@@ -26,12 +26,12 @@ function Dashboard() {
                 }
             })
                 .then(res => {
-                    console.log('Access granted:', res.data);
+                    // console.log('Access granted:', res.data);
                     setData(JSON.parse(localStorage.getItem("driving-data")));
                     setLoading(false);
                 })
                 .catch(err => {
-                    console.error('Access denied:');
+                    // console.error('Access denied:');
                     navigate('/login');
                 });
         }

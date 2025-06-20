@@ -1,8 +1,9 @@
 .admin{
   display: flex;
-  min-width: 100vw;
+  min-width: 99vw;
   min-height: 100vh;
   background-color: aliceblue;
+  scrollbar-width:none;
 }
 
 .navbar {
@@ -46,7 +47,7 @@
   height: 80%;
   line-height: 2.2;
   overflow-y: scroll;
-  scrollbar-width:none
+  scrollbar-width:none;
 }
 
 .nav-links div:hover{
@@ -60,10 +61,10 @@
 }
 
 .information {
-  width: 80vw;
-  padding-left: 16vw;
-  /* margin-right: 5vw; */
-  background-color: aqua;
+  width: 85vw;
+  margin-left: 15vw;
+  padding-left: 1vw;
+  /* background-color: aqua; */
 }
 
 .title{
