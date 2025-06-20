@@ -12,6 +12,7 @@ router.post('/adminregister',async(req,res) => {
         const hashedPassword = await bcrypt.hash(password,10);
         const newadmin = new user({username,email,hashedPassword,isactive,lastlogin,role});
         await newadmin.save();
+        console.log(`Admin Registered Successfully with mail id : ${email} (${username})`);
         res.status(201).json({message:"Admin Registered Successfully"});
     }
     catch(err){
@@ -32,6 +33,8 @@ router.post('/adminlogin', async(req,res) => {
             if(!match) return res.status(400).json({error:"Invalid Password"});
 
             const token = jwt.sign({id:admin._id,role:admin.role},process.env.JWT_SECRET,{expiresIn:'1d'});
+
+            console.log(`Admin Logged In Successfully with mail id : ${email} (${admin.username})`);
 
             res.status(200).json({token,role:admin.role,name:admin.username,mail:admin.email});
     }

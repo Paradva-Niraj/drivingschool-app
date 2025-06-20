@@ -1,5 +1,7 @@
 import '../style/AddPackage.css'
 import { useState } from 'react';
+import axios from 'axios';
+import Info from "../components/Info";
 
 function AddPackage() {
 
@@ -8,10 +10,13 @@ function AddPackage() {
         price: '',
         duration: '',
         lessons: '',
-        vehicle: 'both',
-        theory: 'yes',
-        testfee: 'yes',
+        vehicle: 'Auto/Manual',
+        theory: 'true',
+        testfee: 'true',
     });
+
+    const [error, setError] = useState(null);
+    const [success, setSuccess] = useState(null);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -20,11 +25,40 @@ function AddPackage() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(form); // Replace with API call
+        // console.log(form);
+
+        const token = localStorage.getItem('token')
+        axios.post(`${import.meta.env.VITE_BASE_URL_PHONE}/api/package/addpackage`, { form }, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            }
+        })
+            .then(res => {
+                setSuccess(res.data.message)
+                setForm({
+                    name: '',
+                    price: '',
+                    duration: '',
+                    lessons: '',
+                    vehicle: 'Auto/Manual',
+                    theory: 'true',
+                    testfee: 'true',
+                });
+            })
+            .catch(err => {
+                setError(err.response.data.error);
+            });
     };
+
 
     return (
         <>
+            {
+                error && <Info message={error} type="error" onClose={() => (setError(''))} />
+            }
+            {
+                success && <Info message={success} type="success" onClose={() => (setSuccess(''))} />
+            }
             <form className="add-package-form" onSubmit={handleSubmit}>
                 <h2>Add New Package</h2>
 
@@ -67,25 +101,25 @@ function AddPackage() {
                 <div className="form-row">
                     <label>Vehicle Type</label>
                     <select name="vehicle" value={form.vehicle} onChange={handleChange}>
-                        <option value="manual">Manual</option>
-                        <option value="auto">Auto</option>
-                        <option value="both">Both</option>
+                        <option value="Manual">Manual</option>
+                        <option value="Auto">Auto</option>
+                        <option value="Auto/Manual">Both</option>
                     </select>
                 </div>
 
                 <div className="form-row">
                     <label>Theory Included</label>
                     <select name="theory" value={form.theory} onChange={handleChange}>
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
                     </select>
                 </div>
 
                 <div className="form-row">
                     <label>Test Fee Included</label>
                     <select name="testfee" value={form.testfee} onChange={handleChange}>
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
                     </select>
                 </div>
 

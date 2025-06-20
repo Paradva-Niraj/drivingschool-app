@@ -1,6 +1,6 @@
 .add-package-form {
-  width: 90vw;
-  max-width: 600px;
+  width: 60vw;
+  /* max-width: 600px; */
   margin: 2rem auto;
   background: #fffde7;
   padding: 2rem;

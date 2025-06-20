@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import "../style/Package.css"
 import { useNavigate } from "react-router-dom";
 function Package() {
@@ -7,6 +8,10 @@ function Package() {
     const handleaddcomponent = () => {
         navigate("/dashboard/addpackage");
     }
+
+    useEffect(() => {
+        
+    }, [])
 
     return (
         <>

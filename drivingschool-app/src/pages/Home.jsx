@@ -30,48 +30,6 @@ function Home() {
                         </div>
                     ))
                 }
-            </div><div className='cards'>
-                {
-                    list.map((item, index) => (
-                        <div
-                            className="card"
-                            key={index}
-                            onClick={() => {navigate(`/dashboard/${item.link}`)}}
-                        >
-                            <img src={`icon${index + 1}.png`} alt="info" srcSet="" />
-                            <span>{item.title}</span>
-                            <span>{item.count}</span>
-                        </div>
-                    ))
-                }
-            </div><div className='cards'>
-                {
-                    list.map((item, index) => (
-                        <div
-                            className="card"
-                            key={index}
-                            onClick={() => {navigate(`/dashboard/${item.link}`)}}
-                        >
-                            <img src={`icon${index + 1}.png`} alt="info" srcSet="" />
-                            <span>{item.title}</span>
-                            <span>{item.count}</span>
-                        </div>
-                    ))
-                }
-            </div><div className='cards'>
-                {
-                    list.map((item, index) => (
-                        <div
-                            className="card"
-                            key={index}
-                            onClick={() => {navigate(`/dashboard/${item.link}`)}}
-                        >
-                            <img src={`icon${index + 1}.png`} alt="info" srcSet="" />
-                            <span>{item.title}</span>
-                            <span>{item.count}</span>
-                        </div>
-                    ))
-                }
             </div>
         </>
     );

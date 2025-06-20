@@ -5,4 +5,5 @@ html, body {
   padding: 0;
   scrollbar-width:none;
   scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
 }
