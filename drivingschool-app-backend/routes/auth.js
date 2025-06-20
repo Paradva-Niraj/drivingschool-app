@@ -31,7 +31,7 @@ router.post('/adminlogin', async(req,res) => {
             const match =await bcrypt.compare(password,admin.hashedPassword);
             if(!match) return res.status(400).json({error:"Invalid Password"});
 
-            const token = jwt.sign({id:admin._id,role:admin.role},process.env.JWT_SECRET,{expiresIn:'7d'});
+            const token = jwt.sign({id:admin._id,role:admin.role},process.env.JWT_SECRET,{expiresIn:'1d'});
 
             res.status(200).json({token,role:admin.role,name:admin.username,mail:admin.email});
     }

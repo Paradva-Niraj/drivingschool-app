@@ -23,14 +23,15 @@
 }
 
 .nav-logo{
-  background-color: rgba(255, 255, 0, 0.521);
+  background-color: #fff7d2;
   /* margin-right: 10%; */
   display: flex;
   justify-content: center;
   align-items: center;
   border-end-end-radius: 20px;
   border-end-start-radius: 20px;
-  border-bottom:1px solid rgb(131, 131, 131);
+  border-bottom:1px solid #ffcc00;
+  box-shadow: 0 0px 10px -5px #ffcc00;
 }
 
 .nav-links{
@@ -59,9 +60,10 @@
 }
 
 .information {
-  width: 82vw;
-  margin-left: 16vw;
-  /* background-color: aqua; */
+  width: 80vw;
+  padding-left: 16vw;
+  /* margin-right: 5vw; */
+  background-color: aqua;
 }
 
 .title{

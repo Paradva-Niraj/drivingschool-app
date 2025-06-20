@@ -1,11 +1,19 @@
 import "../style/Package.css"
+import { useNavigate } from "react-router-dom";
 function Package() {
+
+    const navigate = useNavigate();
+
+    const handleaddcomponent = () => {
+        navigate("/dashboard/addpackage");
+    }
+
     return (
         <>
             <div className="package-container">
                 <div className="package-page">
                     <h2>Packages</h2>
-                    <button>
+                    <button onClick={handleaddcomponent}>
                         <svg
                             aria-hidden="true"
                             stroke="currentColor"

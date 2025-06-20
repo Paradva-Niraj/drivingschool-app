@@ -14,7 +14,7 @@ function Adminnav() {
         <>
             <div className="nav-logo">
                 <div>
-                    <img src="logo.png" alt="" srcSet="" />
+                    <img src="logo.png" srcSet="" />
                 </div>
                 <div>
                     <div>

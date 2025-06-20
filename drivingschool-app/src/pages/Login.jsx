@@ -75,7 +75,7 @@ function Login() {
 
         <label>Role</label>
         <select value={role} onChange={(e) => setRole(e.target.value)}>
-          <option value="student" selected>Student</option>
+          <option value="student">Student</option>
           <option value="driver">Driver</option>
           <option value="admin">Admin</option>
         </select>
