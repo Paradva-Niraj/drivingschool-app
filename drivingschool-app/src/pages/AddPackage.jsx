@@ -1,7 +1,9 @@
 import '../style/AddPackage.css'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Info from "../components/Info";
+import { useLocation,Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function AddPackage() {
 
@@ -15,6 +17,25 @@ function AddPackage() {
         testfee: 'true',
     });
 
+    const navigate = useNavigate();
+    const location = useLocation();
+    const formData = location.state?.formData;
+    const token = localStorage.getItem('token');
+    
+    useEffect(() => {
+        if (formData) {
+            setForm({
+                name: formData.name,
+                price: formData.price,
+                duration: formData.duration,
+                lessons: formData.lessons,
+                vehicle: (formData.vehicle == "both") ? 'Auto/Manual' : formData.vehicle,
+                theory: (formData.theory) ? 'true' : 'false',
+                testfee: (formData.fee) ? 'true' : 'false',
+        })
+        }
+    },[])
+
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(null);
 
@@ -26,8 +47,11 @@ function AddPackage() {
     const handleSubmit = (e) => {
         e.preventDefault();
         // console.log(form);
+        if(form.name === "" || form.price === "" || form.duration === '' || form.lessons === ''){
+            setError("Fill The Form");
+            return;
+        }
 
-        const token = localStorage.getItem('token')
         axios.post(`${import.meta.env.VITE_BASE_URL_PHONE}/api/package/addpackage`, { form }, {
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -50,6 +74,46 @@ function AddPackage() {
             });
     };
 
+    const handleEdit = () => {
+
+        if(form.name === "" || form.price === "" || form.duration === '' || form.lessons === ''){
+            setError("Fill The Form");
+            return;
+        }
+
+        axios.put(`${import.meta.env.VITE_BASE_URL_PHONE}/api/package/editpackage/${formData._id}`,{form},{
+            headers : {
+                Authorization : `bearer ${token}`
+            }
+        })
+        .then(
+            res=>{
+                setSuccess(res.data.message);
+                navigate('/dashboard/package');
+            }
+        )
+        .catch(err=>{
+            setError(err.response.data.error);
+        })
+    }
+
+    const handleDelete = () => {
+        // console.log("delete");
+        axios.delete(`${import.meta.env.VITE_BASE_URL_PHONE}/api/package/deletepackage/${formData._id}`,{
+            headers : {
+                Authorization : `Bearer ${token}`,
+            }
+        })
+        .then(
+            res =>{
+                setSuccess(res.data.message);
+                navigate('/dashboard/package');
+            }
+        )
+        .catch(err=>{
+            setError(err.response.data.error);
+        })
+    }
 
     return (
         <>
@@ -59,7 +123,8 @@ function AddPackage() {
             {
                 success && <Info message={success} type="success" onClose={() => (setSuccess(''))} />
             }
-            <form className="add-package-form" onSubmit={handleSubmit}>
+            <Link to="/dashboard/package" className="home-link" > &larr;Back</Link>
+            <div className="add-package-form">
                 <h2>Add New Package</h2>
 
                 <div className="form-row">
@@ -123,8 +188,16 @@ function AddPackage() {
                     </select>
                 </div>
 
-                <button type="submit" className="submit-btn">Add Package</button>
-            </form>
+                {
+                    formData && <>
+                    <button className='delete-btn' onClick={handleDelete}>Delete</button>
+                    <button className='edit-button' onClick={handleEdit}>Save Changes</button>
+                    </>
+                }
+                {
+                    !formData && <button type='submit' onClick={handleSubmit} className='submit-btn'>Add Package</button>
+                }
+            </div>
         </>
     );
 }

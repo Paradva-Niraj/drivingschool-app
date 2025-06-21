@@ -24,7 +24,7 @@ function Home() {
                             key={index}
                             onClick={() => {navigate(`/dashboard/${item.link}`)}}
                         >
-                            <img src={`icon${index + 1}.png`} alt="info" srcSet="" />
+                            <img src={`/icon${index + 1}.png`} alt="info" srcSet="" />
                             <span>{item.title}</span>
                             <span>{item.count}</span>
                         </div>

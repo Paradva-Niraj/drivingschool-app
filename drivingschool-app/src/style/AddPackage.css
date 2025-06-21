@@ -55,6 +55,65 @@
   transition: background 0.2s ease;
 }
 
+
+.home-link{
+    text-decoration: none;
+    color: rgb(45, 45, 45);
+    transition: 0.5s ease;
+    position: absolute;
+}
+
+.home-link:hover{
+  transform: translate(-3px);
+  color: #ffcc00;
+}
+
+.edit-button{
+  background-color: #d4ff00;
+  color: #222;
+  font-weight: bold;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 45%;
+  margin-top: 1rem;
+  transition: background 0.2s ease;
+}
+
+.delete-btn{
+  background-color: #ff0000;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.8rem;
+  border: none;
+  margin-right: 7%;
+  margin-left: 2%;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 45%;
+  margin-top: 1rem;
+  transition: background 0.2s ease;
+}
+
 .submit-btn:hover {
   background-color: #ffcc00;
+}
+
+@media screen and (max-width: 480px) {
+  .delete-btn{
+    margin: 0;
+  } 
+
+  .delete-btn,.edit-button{
+    min-width: 100%;
+  }
+
+}
+
+@media screen and (max-width: 1024px) {
+  .home-link{
+    position: absolute;
+    margin-top: 20px;
+  }
 }

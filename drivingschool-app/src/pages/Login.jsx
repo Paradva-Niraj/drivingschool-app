@@ -38,7 +38,7 @@ function Login() {
         }
       }
       catch (err) {
-        setError(err.response?.data?.error || "Check gmail "+err);
+        setError(err.response?.data?.error || "Check gmail ");
       }
     }
   };
