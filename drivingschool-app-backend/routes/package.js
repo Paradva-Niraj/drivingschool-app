@@ -68,4 +68,18 @@ router.delete('/deletepackage/:id',verifytoken,async(req,res)=>{
     }
 })
 
+router.get('/sendpackagecount',verifytoken,async(req,res)=>{
+    try{
+        const count = await packages.countDocuments();
+        if(!count){
+            res.status(404).json({error:"no data avalable"})
+        }
+        res.status(200).json({count:count});
+    }
+    catch(err){
+        res.status(400).json({error:`package not found`})
+        console.log("error at package count find"+err);
+    }
+})
+
 module.exports = router;

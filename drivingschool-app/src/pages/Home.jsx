@@ -1,10 +1,12 @@
 import '../style/Home.css'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function Home() {
 
     const navigate = useNavigate();
+    const token = localStorage.getItem('token');
 
     const [list, setList] = useState([
         { title: 'Students', count: 2, link: 'students' },
@@ -13,6 +15,19 @@ function Home() {
         { title: 'Admins', count: 1, link: 'admin' },
         { title: 'Enquiry', count: 4, link: 'Enquiry' },
     ]);
+
+    useEffect(()=>{
+        axios.get(`${import.meta.env.VITE_BASE_URL_PHONE}/api/package/sendpackagecount`,{
+            headers : {
+                Authorization : `bearer ${token}`
+            }
+        })
+        .then(res=>{
+            list[2].count=res.data.count;
+        })
+        .catch(res=>{
+        })
+    },[])
 
     return (
         <>
