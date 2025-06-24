@@ -9,25 +9,33 @@ function Home() {
     const token = localStorage.getItem('token');
 
     const [list, setList] = useState([
-        { title: 'Students', count: 2, link: 'students' },
-        { title: 'Staff', count: 3, link: 'staff' },
-        { title: 'Package', count: 5, link: 'package' },
-        { title: 'Admins', count: 1, link: 'admin' },
-        { title: 'Enquiry', count: 4, link: 'Enquiry' },
+        { title: 'Students', count: null, link: 'students' },
+        { title: 'Staff', count: null, link: 'staff' },
+        { title: 'Package', count: null, link: 'package' },
+        { title: 'Admins', count: null, link: 'admin' },
+        { title: 'Enquiry', count: null, link: 'Enquiry' },
     ]);
 
-    useEffect(()=>{
-        axios.get(`${import.meta.env.VITE_BASE_URL_PHONE}/api/package/sendpackagecount`,{
-            headers : {
-                Authorization : `bearer ${token}`
-            }
-        })
-        .then(res=>{
-            list[2].count=res.data.count;
-        })
-        .catch(res=>{
-        })
-    },[])
+    useEffect(() => {
+        axios
+            .get(`${import.meta.env.VITE_BASE_URL_PHONE}/api/package/sendpackagecount`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            })
+            .then((res) => {
+                const count = res.data.count ?? res.data;
+
+                setList((prevList) =>
+                    prevList.map((item) =>
+                        item.title === 'Package' ? { ...item, count } : item
+                    )
+                );
+            })
+            .catch((err) => {
+            });
+    }, []);
+
 
     return (
         <>
@@ -37,11 +45,11 @@ function Home() {
                         <div
                             className="card"
                             key={index}
-                            onClick={() => {navigate(`/dashboard/${item.link}`)}}
+                            onClick={() => { navigate(`/dashboard/${item.link}`) }}
                         >
                             <img src={`/icon${index + 1}.png`} alt="info" srcSet="" />
                             <span>{item.title}</span>
-                            <span>{item.count}</span>
+                            <span>{(item.count != null) ? item.count : <div className='fetching'>...</div>}</span>
                         </div>
                     ))
                 }

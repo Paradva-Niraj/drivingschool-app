@@ -1,7 +1,25 @@
 import '../style/Landing.css'
 import Header from '../components/Header';
+import { useState } from 'react';
 
 function Landing() {
+
+    const [form,setForm] = useState({
+        name:null,
+        email:null,
+        phonenumber:null,
+        message:null,
+    });
+
+    const handlesubmit = (e) => {
+        e.preventDefault();
+        console.log(form);
+        
+    }
+
+    const handleChange = (e) =>{
+        console.log(e.value);
+    }
 
     return (
         <div className='main'>
@@ -39,11 +57,11 @@ function Landing() {
             {/* Inquiry Section */}
             <section className="inquiry" id='inquery'>
                 <h2>Inquiry Form</h2>
-                <form>
-                    <input type="text" placeholder="Your Name" required />
-                    <input type="email" placeholder="Your Email" required />
-                    <input type="tel" placeholder="Phone Number" required />
-                    <textarea placeholder="Your Message" required></textarea>
+                <form onSubmit={(e)=>handlesubmit(e)}>
+                    <input type="text" placeholder="Your Name" name="name" value={form.name} onChange={(e)=>handleChange(e)} required />
+                    <input type="email" placeholder="Your Email" name="email" value={form.email} required />
+                    <input type="tel" placeholder="Phone Number" value={form.phonenumber} required />
+                    <textarea placeholder="Your Message" value={form.message} required></textarea>
                     <button type="submit">Submit</button>
                 </form>
             </section>

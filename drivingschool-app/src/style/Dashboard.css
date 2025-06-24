@@ -1,9 +1,9 @@
-.admin{
+.admin {
   display: flex;
   min-width: 99vw;
   min-height: 100vh;
   background-color: aliceblue;
-  scrollbar-width:none;
+  scrollbar-width: none;
 }
 
 .navbar {
@@ -11,7 +11,7 @@
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
-  background-color:#ffffff;
+  background-color: #ffffff;
   width: 15vw;
   height: 100vh;
   position: fixed;
@@ -23,7 +23,7 @@
   width: auto;
 }
 
-.nav-logo{
+.nav-logo {
   background-color: #fff7d2;
   /* margin-right: 10%; */
   display: flex;
@@ -31,11 +31,11 @@
   align-items: center;
   border-end-end-radius: 20px;
   border-end-start-radius: 20px;
-  border-bottom:1px solid #ffcc00;
+  border-bottom: 1px solid #ffcc00;
   box-shadow: 0 0px 10px -5px #ffcc00;
 }
 
-.nav-links{
+.nav-links {
   display: flex;
   margin-top: 2vh;
   flex-direction: column;
@@ -47,16 +47,16 @@
   height: 80%;
   line-height: 2.2;
   overflow-y: scroll;
-  scrollbar-width:none;
+  scrollbar-width: none;
 }
 
-.nav-links div:hover{
+.nav-links div:hover {
   text-shadow: 0 0 2px rgba(0, 0, 0, 0.582);
   cursor: pointer;
 }
 
-.Link{
-  color:black;
+.Link {
+  color: black;
   text-decoration: none;
 }
 
@@ -67,7 +67,7 @@
   /* background-color: aqua; */
 }
 
-.title{
+.title {
   font-size: 1.4vw;
   font-weight: 600;
   height: 6vh;
@@ -76,14 +76,14 @@
   justify-content: left;
 }
 
-.cards{
+.cards {
   display: flex;
   margin-top: 2vh;
   flex-wrap: wrap;
-  gap:1rem;
+  gap: 1rem;
 }
 
-.card{
+.card {
   /* margin-right: 2vw; */
   margin-left: 2vw;
   /* width: 330px; */
@@ -107,13 +107,13 @@
   margin-left: 10px;
 }
 
-.card:hover{
+.card:hover {
   background-color: rgba(255, 255, 0, 0.516);
   box-shadow: 0px 0px 5px rgb(0, 0, 0);
-  transition-delay: 0.1s ;
+  transition-delay: 0.1s;
 }
 
-.logout-btn{
+.logout-btn {
   font-size: 1.1vw;
   background-color: rgba(255, 0, 0, 0.5);
   color: white;
@@ -132,7 +132,7 @@
   bottom: 2%;
 }
 
-.logout-btn-phone{
+.logout-btn-phone {
   font-size: 12px;
   background-color: rgba(255, 0, 0, 0.5);
   color: white;
@@ -148,25 +148,30 @@
   width: 100px;
   position: absolute;
   right: 10px;
-  top:1vh;
+  top: 1vh;
   display: none;
 }
+
+.fetching {
+  font-size: larger;
+}
+
 
 @media screen and (max-width: 1024px) {
   .admin {
     flex-direction: column;
   }
 
-  .nav-links{
+  .nav-links {
     flex-direction: row;
     overflow-x: scroll;
     overflow-y: hidden;
     height: 10vw;
   }
 
-  .nav-links div{
+  .nav-links div {
     margin-left: 5vw;
-    margin-right:5vw;
+    margin-right: 5vw;
   }
 
   .navbar {
@@ -186,26 +191,26 @@
     display: none;
   }
 
-  .card{
+  .card {
     width: 44%;
   }
 
-  .logout-btn{
-    display:none ;
+  .logout-btn {
+    display: none;
   }
 
-  .logout-btn-phone{
+  .logout-btn-phone {
     display: block;
   }
 
 }
 
-@media  screen and (max-width: 431px) {
-  .card{
+@media screen and (max-width: 431px) {
+  .card {
     width: 95vw;
   }
 
-  .nav-logo{
+  .nav-logo {
     justify-content: left;
   }
 }
