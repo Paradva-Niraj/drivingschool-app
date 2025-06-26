@@ -57,7 +57,7 @@ I done many thing in last 5 days like requirement designing and many other thing
 ```bash
 # Backend
 npm install
-npm run dev  # uses nodemon
+npm run dev 
 
 # Frontend (assumes Vite setup)
 cd frontend
