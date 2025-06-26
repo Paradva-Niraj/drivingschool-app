@@ -1,28 +1,55 @@
 import '../style/Landing.css'
 import Header from '../components/Header';
 import { useState } from 'react';
+import Info from '../components/Info';
+import axios from 'axios';
 
 function Landing() {
 
+    const [sucess,setSucess] = useState();
+    const [error,setError] = useState();
     const [form,setForm] = useState({
-        name:null,
-        email:null,
-        phonenumber:null,
-        message:null,
+        name:'',
+        email:'',
+        phonenumber:'',
+        message:'',
     });
 
     const handlesubmit = (e) => {
         e.preventDefault();
-        console.log(form);
-        
-    }
+        // console.log(form);
+        axios.post(`${import.meta.env.VITE_BASE_URL_PHONE}/api/enquiry/sendenquiry`,{ 
+            form 
+        })
+        .then(res=>{
+            setSucess(res.data.message);
+            setForm({
+                name:'',
+                email:'',
+                phonenumber:'',
+                message:'',
+            })
+        })
+       .catch(err => {
+            setError(err.response.data.error);
+            console.log("gsd");
+        });
+            
+   }
 
     const handleChange = (e) =>{
-        console.log(e.value);
+        const {name,value} = e.target;
+        setForm({...form,[name]:value});
     }
 
     return (
         <div className='main'>
+            {
+                error && <Info message={error} onClose={()=>setError('')} />
+            }
+            {
+                sucess && <Info message={sucess} type='success' onClose={()=>setSucess('')} />
+            }
             {/* header */}
             <Header />
             
@@ -58,10 +85,10 @@ function Landing() {
             <section className="inquiry" id='inquery'>
                 <h2>Inquiry Form</h2>
                 <form onSubmit={(e)=>handlesubmit(e)}>
-                    <input type="text" placeholder="Your Name" name="name" value={form.name} onChange={(e)=>handleChange(e)} required />
-                    <input type="email" placeholder="Your Email" name="email" value={form.email} required />
-                    <input type="tel" placeholder="Phone Number" value={form.phonenumber} required />
-                    <textarea placeholder="Your Message" value={form.message} required></textarea>
+                    <input type="text" placeholder="Your Name" name="name" value={form.name} onChange={handleChange} required />
+                    <input type="email" placeholder="Your Email" name="email" value={form.email} onChange={handleChange} required />
+                    <input type="tel" placeholder="Phone Number" value={form.phonenumber} name='phonenumber' onChange={handleChange} required />
+                    <textarea placeholder="Your Message" value={form.message} name='message' onChange={handleChange} required></textarea>
                     <button type="submit">Submit</button>
                 </form>
             </section>

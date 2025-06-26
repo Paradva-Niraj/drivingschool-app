@@ -10,7 +10,7 @@ dotenv.config();
 const authroute = require('./routes/auth');
 const admin = require('./routes/admin');
 const package = require('./routes/package');
-
+const enquiry = require('./routes/enquiry');
 
 //server create
 const app = express();
@@ -30,6 +30,7 @@ app.get('/', (req, res) => {
 app.use('/api/auth',authroute);
 app.use('/api/admin',admin);
 app.use('/api/package',package);
+app.use('/api/enquiry',enquiry);
 
 //port for running
 const PORT = process.env.PORT || 8000;

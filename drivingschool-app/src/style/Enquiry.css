@@ -1,0 +1,64 @@
+.enquiry-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  /* background-color: #f9f9f9; */
+}
+
+.enquiry-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.enquiry-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.en-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.en-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+  color: #2c3e50;
+}
+
+.en-card p {
+  margin: 0.3rem 0;
+  color: #555;
+}
+
+.read-btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  align-self: flex-start;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+.read-btn:hover {
+  background-color: #0056b3;
+}
+
+
+.no-data {
+  text-align: center;
+  color: #999;
+  grid-column: 1 / -1;
+}

@@ -17,12 +17,11 @@ function Home() {
     ]);
 
     useEffect(() => {
-        axios
-            .get(`${import.meta.env.VITE_BASE_URL_PHONE}/api/package/sendpackagecount`, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            })
+        axios.get(`${import.meta.env.VITE_BASE_URL_PHONE}/api/package/sendpackagecount`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        })
             .then((res) => {
                 const count = res.data.count ?? res.data;
 
@@ -33,6 +32,21 @@ function Home() {
                 );
             })
             .catch((err) => {
+            });
+        axios.get(`${import.meta.env.VITE_BASE_URL_PHONE}/api/enquiry/sendencount`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        })
+            .then(res => {
+                const count = res.data.count ?? res.data;
+                setList((prevList) =>
+                    prevList.map((item) =>
+                        item.title === 'Enquiry' ? { ...item, count } : item
+                    )
+                );
+            })
+            .catch((err)=>{
             });
     }, []);
 

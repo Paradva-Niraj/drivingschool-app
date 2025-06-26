@@ -1,5 +1,4 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const packages = require('../models/packages');
 const verifytoken  = require('../middleware/verifytoken');
 
