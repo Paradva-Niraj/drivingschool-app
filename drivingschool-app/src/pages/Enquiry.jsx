@@ -61,6 +61,7 @@ function Enquiry() {
                             <p><strong>Email:</strong> {item.email}</p>
                             <p><strong>Phone:</strong> {item.phonenumber}</p>
                             <p><strong>Message:</strong> {item.message}</p>
+                            <p><strong>Date:</strong> {item.date}</p>
                             <button className='read-btn' onClick={()=>handleread(item._id)} disabled={item.read}>
                                 {
                                     (item.read)?'Done':'Read'

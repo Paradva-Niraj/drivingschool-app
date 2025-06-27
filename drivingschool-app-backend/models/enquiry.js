@@ -6,6 +6,7 @@ const enquiry = new mongoose.Schema({
     phonenumber: { type: String, required: true },
     message: { type: String, required: true },
     read: { type: Boolean, default: false },
+    date:{ type:String }
 });
 
 module.exports = mongoose.model('enquiry', enquiry);

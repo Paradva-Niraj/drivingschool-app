@@ -6,53 +6,56 @@ import axios from 'axios';
 
 function Landing() {
 
-    const [sucess,setSucess] = useState();
-    const [error,setError] = useState();
-    const [form,setForm] = useState({
-        name:'',
-        email:'',
-        phonenumber:'',
-        message:'',
+    const [sucess, setSucess] = useState();
+    const [error, setError] = useState();
+    const [form, setForm] = useState({
+        name: '',
+        email: '',
+        phonenumber: '',
+        message: '',
+        date: new Date().toLocaleString(),
     });
 
     const handlesubmit = (e) => {
         e.preventDefault();
-        // console.log(form);
-        axios.post(`${import.meta.env.VITE_BASE_URL_PHONE}/api/enquiry/sendenquiry`,{ 
-            form 
+        console.log(form);
+        axios.post(`${import.meta.env.VITE_BASE_URL_PHONE}/api/enquiry/sendenquiry`, {
+            form
         })
-        .then(res=>{
-            setSucess(res.data.message);
-            setForm({
-                name:'',
-                email:'',
-                phonenumber:'',
-                message:'',
+            .then(res => {
+                setSucess(res.data.message);
+                setForm({
+                    name: '',
+                    email: '',
+                    phonenumber: '',
+                    message: '',
+                    date: new Date().toLocaleString(),
+                });
+                console.log("he");
             })
-        })
-       .catch(err => {
-            setError(err.response.data.error);
-            console.log("gsd");
-        });
-            
-   }
+            .catch(err => {
+                setError(err.response?.data?.error || "Check gmail ");
+                console.error("Submit Error:", err);
+            });
 
-    const handleChange = (e) =>{
-        const {name,value} = e.target;
-        setForm({...form,[name]:value});
+    }
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setForm({ ...form, [name]: value });
     }
 
     return (
         <div className='main'>
             {
-                error && <Info message={error} onClose={()=>setError('')} />
+                error && <Info message={error} onClose={() => setError('')} />
             }
             {
-                sucess && <Info message={sucess} type='success' onClose={()=>setSucess('')} />
+                sucess && <Info message={sucess} type='success' onClose={() => setSucess('')} />
             }
             {/* header */}
             <Header />
-            
+
             {/* name and image */}
 
             <div className='home' id='home'>
@@ -84,7 +87,7 @@ function Landing() {
             {/* Inquiry Section */}
             <section className="inquiry" id='inquery'>
                 <h2>Inquiry Form</h2>
-                <form onSubmit={(e)=>handlesubmit(e)}>
+                <form onSubmit={(e) => handlesubmit(e)}>
                     <input type="text" placeholder="Your Name" name="name" value={form.name} onChange={handleChange} required />
                     <input type="email" placeholder="Your Email" name="email" value={form.email} onChange={handleChange} required />
                     <input type="tel" placeholder="Phone Number" value={form.phonenumber} name='phonenumber' onChange={handleChange} required />

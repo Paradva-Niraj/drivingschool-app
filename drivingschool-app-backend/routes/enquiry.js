@@ -5,7 +5,7 @@ const Route = express.Router();
 
 Route.get('/enquirys',verify,async(req,res)=>{
     try{
-        const data = await enquiry.find();
+        const data = await enquiry.find().sort({read:1});
         if(!data){
             res.status(404).json({error:'no data avalable'});
         }
@@ -18,17 +18,17 @@ Route.get('/enquirys',verify,async(req,res)=>{
 })
 
 Route.post('/sendenquiry',async(req,res)=>{
-    const {name,email,phonenumber,message} = req.body.form;
-    console.log(name,email,phonenumber,message);
+    const {name,email,phonenumber,message,date} = req.body.form;
+    console.log(name,email,phonenumber,message,date);
     
     try{
-        const data = new enquiry({name,email,phonenumber,message});
+        const data = new enquiry({name,email,phonenumber,message,date});
         res.status(200).json({message:'Submited Successfully'})
         await data.save();
     }
     catch(err){
          res.status(404).json({error:`Error In Request`});
-        //  console.log(err);
+         console.log(err);
     }
 })
 
