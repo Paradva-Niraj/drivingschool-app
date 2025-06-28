@@ -51,9 +51,24 @@
   transition: background-color 0.3s ease;
 }
 
+.readed-btn{
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  align-self: flex-start;
+  background-color: #22ff00;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
 .read-btn:hover {
   background-color: #0056b3;
+}
+
+.readed-btn:hover {
+  background-color: #149600;
 }
 
 

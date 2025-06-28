@@ -62,7 +62,7 @@ function Enquiry() {
                             <p><strong>Phone:</strong> {item.phonenumber}</p>
                             <p><strong>Message:</strong> {item.message}</p>
                             <p><strong>Date:</strong> {item.date}</p>
-                            <button className='read-btn' onClick={()=>handleread(item._id)} disabled={item.read}>
+                            <button className={(item.read)?`readed-btn`:`read-btn`} onClick={()=>handleread(item._id)} disabled={item.read}>
                                 {
                                     (item.read)?'Done':'Read'
                                 }
