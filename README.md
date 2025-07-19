@@ -75,6 +75,12 @@ This system helps manage a driving school, including **admin registrations**, **
 
 ---
 
+#preview
+
+![App Dashboard](./preview/p1.png)
+![App Dashboard](./preview/p2.png)
+![App Dashboard](./preview/p3.png)
+![App Dashboard](./preview/p4.png)
 ## 📦 How to Run the Project
 
 ### 🔧 Backend
